@@ -32,6 +32,8 @@ for _, speed_at_angle in sorted(boat_speeds.items()):
 
 ax.set_theta_direction(-1)  # clockwise
 ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg
+ax.set_thetamin(0)  # plot only right half of diagram
+ax.set_thetamax(180)
 ax.set_thetagrids((0, 45, 52, 60, 75, 90, 110, 120, 135, 150, 165, 180))
 ax.set_rmax(10)
 

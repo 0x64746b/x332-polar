@@ -19,6 +19,10 @@ boat_speeds = {
      8: [None, None, None, None, None, None, 5.35, None, 5.97, 6.21, 6.39, 6.34, 6.43, 6.27, 5.72, None, 5.01, 4.97, None, None, None, None, None, None],
     10: [None, None, None, None, 5.87, None, None, None, 6.53, 6.72, 6.87, 6.91, 7.03, 6.95, 6.56, None, None, 5.90, 5.76, None, None, None, None, None],
     12: [None, None, 6.10, None, None, None, None, None, 6.79, 6.98, 7.16, 7.20, 7.42, 7.36, 7.08, None, None, 6.62, None, 6.27, None, None, None, None],
+    14: [None, 6.22, None, None, None, None, None, None, 6.89, 7.10, 7.36, 7.45, 7.75, 7.73, 7.48, None, None, 7.10, None, None, 6.52, None, None, None],
+    16: [6.26, None, None, None, None, None, None, None, 6.94, 7.16, 7.48, 7.68, 8.01, 8.08, 7.87, None, None, 7.47, None, None, None, 6.94, None, None],
+    20: [None, None, None, 6.31, None, None, None, None, 7.00, 7.23, 7.62, 7.99, 8.33, 8.68, 8.65, None, None, 8.22, None, None, None, None, None, 7.66],
+    24: [None, None, None, None, None, 6.28, None, None, 6.97, 7.22, 7.69, 8.16, 8.47, 9.06, 9.65, None, None, 9.08, None, None, None, None, 8.38, None],
 }
 
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})

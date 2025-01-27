@@ -23,10 +23,8 @@ boat_speeds = {
 
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 
-ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speeds[6]))
-ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speeds[8]))
-ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speeds[10]))
-ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speeds[12]))
+for _, speed_at_angle in sorted(boat_speeds.items()):
+    ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(speed_at_angle))
 
 ax.set_theta_direction(-1)  # clockwise
 ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg

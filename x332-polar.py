@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-def to_radians(degrees):
-    return [deg * np.pi / 180 for deg in degrees]
-
 def interpolate_beat_and_run(boat_speeds):
     stripped_speeds = list(boat_speeds)
     trailing_nones = []
@@ -22,8 +19,8 @@ boat_speed = {
 
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 
-ax.plot(to_radians(wind_angles), interpolate_beat_and_run(boat_speed[6]))
-ax.plot(to_radians(wind_angles), interpolate_beat_and_run(boat_speed[12]))
+ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speed[6]))
+ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(boat_speed[12]))
 
 ax.set_theta_direction(-1)  # clockwise
 ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg

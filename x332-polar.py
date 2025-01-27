@@ -36,5 +36,6 @@ ax.set_thetamin(0)  # plot only right half of diagram
 ax.set_thetamax(180)
 ax.set_thetagrids((0, 45, 52, 60, 75, 90, 110, 120, 135, 150, 165, 180))
 ax.set_rmax(10)
+ax.grid(linestyle=':')
 
 plt.show()

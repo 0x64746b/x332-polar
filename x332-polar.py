@@ -3,7 +3,13 @@ import numpy as np
 import pandas as pd
 
 def interpolate_beat_and_run(boat_speeds):
-    return pd.Series(boat_speeds).interpolate().tolist()
+    stripped_speeds = list(boat_speeds)
+    trailing_nones = []
+
+    while stripped_speeds[-1] is None:
+        trailing_nones.append(stripped_speeds.pop())
+
+    return pd.Series(stripped_speeds).interpolate().tolist() + trailing_nones
 
 boat_speed = {
     6: [None, 4.6, 5.07, 5.34, 5.53, 5.42, 5.35, 5.16, 4.61, 4.13, 3.88, None],

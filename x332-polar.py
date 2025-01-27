@@ -27,7 +27,4 @@ ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg
 ax.set_thetagrids((0, 45, 52, 60, 75, 90, 110, 120, 135, 150, 165, 180))
 ax.set_rmax(10)
 
-print(interpolate_beat_and_run(boat_speed[6]))
-print(interpolate_beat_and_run(boat_speed[12]))
-
 plt.show()

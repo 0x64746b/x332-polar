@@ -2,6 +2,10 @@
 
 Play with averaged speeds, beat and run angles.
 
+## Example
+
+![Boat speeds](output/boat_speeds.png)
+
 ## Data Sources
 
  - https://forums.sailinganarchy.com/threads/x332-polar-table-or-diagram.52100/

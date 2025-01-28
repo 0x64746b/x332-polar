@@ -13,6 +13,8 @@ for entry in x332s:
         boat_speeds[angle].append(entry['vpp'][str(angle)])
 
 avg_boat_speeds = { angle: np.mean(boat_speeds[angle], axis=0).tolist() for angle in boat_speeds}
+avg_boat_speeds['angles'] = entry['vpp']['angles']
+avg_boat_speeds['speeds'] = entry['vpp']['speeds']
 
 with open('output/avg_x332.json', 'w') as avg_x332:
     json.dump(avg_boat_speeds, avg_x332, indent=4)

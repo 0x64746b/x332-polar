@@ -1,3 +1,5 @@
+import json
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -10,6 +12,19 @@ def interpolate_beat_and_run(boat_speeds):
         trailing_nones.append(stripped_speeds.pop())
 
     return pd.Series(stripped_speeds).interpolate().tolist() + trailing_nones
+
+with open('output/avg_x332.json') as avg_speeds:
+    data = json.load(avg_speeds)
+
+bs = pd.DataFrame(index=data['speeds'], columns=sorted(data['beat_angle']) + data['angles'] + sorted(data['run_angle']))
+for angle in data['angles']:
+    bs[angle] = data[str(angle)]
+
+for tws, twa, boat_speed in zip(data['speeds'], data['beat_angle'], data['beating']):
+    bs.at[tws, twa] = boat_speed
+
+for tws, twa, boat_speed in zip(data['speeds'], data['run_angle'], data['running']):
+    bs.at[tws, twa] = boat_speed
 
 # https://jieter.github.io/orc-data/site/index.html#ITA/ITA13672
 wind_angles = [38.9, 39, 39.2, 39.3, 39.9, 40.6, 41.1, 43.6, 52, 60, 75, 90, 110, 120, 135, 144.4, 149.4, 150, 152.8, 158.3, 170.9, 178.1, 178.8, 179]

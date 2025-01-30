@@ -33,6 +33,7 @@ for tws, twa, boat_speed in zip(data['speeds'], data['run_angle'], data['running
 
 # Plot the whole thing
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+fig.canvas.manager.set_window_title('X-332 Polar Diagram')
 
 boat_speeds.apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(speed_at_angle)), axis=1)
 

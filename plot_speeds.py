@@ -42,6 +42,7 @@ print(boat_speeds)
     .tab_header(title="X-332", subtitle='Avg. target speeds')
     #.tab_stubhead(label="TWS\TWA")
     .opt_stylize(style=1)
+    .opt_horizontal_padding(scale=2)
 ).show()
 
 # Plot the whole thing

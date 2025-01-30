@@ -41,6 +41,7 @@ print(boat_speeds)
     GT(boat_speeds.assign(TWS=data['speeds']), rowname_col='TWS')
     .tab_header(title="X-332", subtitle='Avg. target speeds')
     #.tab_stubhead(label="TWS\TWA")
+    .opt_stylize(style=1)
 ).show()
 
 # Plot the whole thing

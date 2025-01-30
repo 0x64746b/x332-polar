@@ -38,7 +38,7 @@ pd.options.display.width=None
 print(boat_speeds)
 
 (
-    GT(boat_speeds.assign(TWS=data['speeds'], Bft=[2] + [3] * 2 + [4] * 2 + [5] * 2 + [6]), rowname_col='TWS', groupname_col='Bft')
+    GT(boat_speeds.assign(TWS=data['speeds']), rowname_col='TWS')
     .tab_header(title="X-332", subtitle='Avg. target speeds')
     #.tab_stubhead(label="TWS\TWA")
 ).show()

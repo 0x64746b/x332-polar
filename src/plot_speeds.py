@@ -7,14 +7,8 @@ import pandas as pd
 from great_tables import GT
 
 
-def interpolate_beat_and_run(boat_speeds):
-    stripped_speeds = list(boat_speeds)
-    trailing_nans = []
-
-    while stripped_speeds[-1] is np.nan:
-        trailing_nans.append(stripped_speeds.pop())
-
-    return pd.Series(stripped_speeds).interpolate().tolist() + trailing_nans
+def interpolate_beat_and_run(sparse_speeds: pd.DataFrame):
+    return sparse_speeds.interpolate(method='index', axis=1, limit_area='inside').round(1)
 
 # Read data
 with open('../output/avg_x332.json') as avg_speeds:
@@ -22,7 +16,7 @@ with open('../output/avg_x332.json') as avg_speeds:
 
 # Prepare data structures
 wind_angles = np.unique(np.rint(data['beat_angle'] + data['angles'] + data['run_angle']).astype(int))
-boat_speeds = pd.DataFrame(index=data['speeds'], columns=wind_angles)
+boat_speeds = pd.DataFrame(index=data['speeds'], columns=wind_angles, dtype=np.float64)
 
 # Construct data frame from raw values
 for angle in data['angles']:
@@ -49,7 +43,7 @@ print(boat_speeds)
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 fig.canvas.manager.set_window_title('X-332 Polar Diagram')
 
-boat_speeds.apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), interpolate_beat_and_run(speed_at_angle)), axis=1)
+interpolate_beat_and_run(boat_speeds).apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), speed_at_angle), axis=1)
 
 ax.set_theta_direction(-1)  # clockwise
 ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg

@@ -31,6 +31,9 @@ for tws, twa, boat_speed in zip(data['speeds'], np.round(data['beat_angle']), np
 for tws, twa, boat_speed in zip(data['speeds'], np.round(data['run_angle']), np.round(data['running'], 1)):
     boat_speeds.at[tws, twa] = boat_speed
 
+pd.options.display.width=None
+print(boat_speeds)
+
 # Plot the whole thing
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 fig.canvas.manager.set_window_title('X-332 Polar Diagram')

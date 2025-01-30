@@ -17,7 +17,7 @@ def interpolate_beat_and_run(boat_speeds):
     return pd.Series(stripped_speeds).interpolate().tolist() + trailing_nans
 
 # Read data
-with open('output/avg_x332.json') as avg_speeds:
+with open('../output/avg_x332.json') as avg_speeds:
     data = json.load(avg_speeds)
 
 # Prepare data structures

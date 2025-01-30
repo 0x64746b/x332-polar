@@ -3,7 +3,7 @@ import json
 
 import numpy as np
 
-with open('data/orc_2024.valid.json') as all_boats:
+with open('../data/orc_2024.valid.json') as all_boats:
     x332s = [entry for entry in json.load(all_boats) if entry['boat']['type'] == 'X-332']
 
 boat_speeds = defaultdict(list)
@@ -26,5 +26,5 @@ avg_boat_speeds['beating'] = np.round(np.mean(boat_speeds['beating'], axis=0), 2
 avg_boat_speeds['run_angle'] = np.round(np.mean(boat_speeds['run_angle'], axis=0), 1).tolist()
 avg_boat_speeds['running'] = np.round(np.mean(boat_speeds['running'], axis=0), 2).tolist()
 
-with open('output/avg_x332.json', 'w') as avg_x332:
+with open('../output/avg_x332.json', 'w') as avg_x332:
     json.dump(avg_boat_speeds, avg_x332, indent=4)

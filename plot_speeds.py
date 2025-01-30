@@ -18,17 +18,17 @@ with open('output/avg_x332.json') as avg_speeds:
     data = json.load(avg_speeds)
 
 # Prepare data structures
-wind_angles = sorted(data['beat_angle'] + data['angles'] + data['run_angle'])
+wind_angles = np.unique(np.round(data['beat_angle'] + data['angles'] + data['run_angle']))
 boat_speeds = pd.DataFrame(index=data['speeds'], columns=wind_angles)
 
 # Construct data frame from raw values
 for angle in data['angles']:
     boat_speeds[angle] = data[str(angle)]
 
-for tws, twa, boat_speed in zip(data['speeds'], data['beat_angle'], data['beating']):
+for tws, twa, boat_speed in zip(data['speeds'], np.round(data['beat_angle']), data['beating']):
     boat_speeds.at[tws, twa] = boat_speed
 
-for tws, twa, boat_speed in zip(data['speeds'], data['run_angle'], data['running']):
+for tws, twa, boat_speed in zip(data['speeds'], np.round(data['run_angle']), data['running']):
     boat_speeds.at[tws, twa] = boat_speed
 
 # Plot the whole thing

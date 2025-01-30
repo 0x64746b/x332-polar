@@ -37,8 +37,11 @@ for tws, twa, boat_speed in zip(data['speeds'], np.round(data['run_angle']), np.
 pd.options.display.width=None
 print(boat_speeds)
 
-table = GT(boat_speeds)
-table.show()
+(
+    GT(boat_speeds.assign(TWS=data['speeds']), rowname_col='TWS')
+    .tab_header(title="X-332", subtitle='Avg. target speeds')
+    #.tab_stubhead(label="TWS\TWA")
+).show()
 
 # Plot the whole thing
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})

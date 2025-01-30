@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from great_tables import GT
+
+
 def interpolate_beat_and_run(boat_speeds):
     stripped_speeds = list(boat_speeds)
     trailing_nans = []
@@ -33,6 +36,9 @@ for tws, twa, boat_speed in zip(data['speeds'], np.round(data['run_angle']), np.
 
 pd.options.display.width=None
 print(boat_speeds)
+
+table = GT(boat_speeds)
+table.show()
 
 # Plot the whole thing
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})

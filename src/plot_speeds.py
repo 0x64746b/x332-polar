@@ -43,7 +43,7 @@ print(boat_speeds)
 fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 fig.canvas.manager.set_window_title('X-332 Polar Diagram')
 
-interpolate_beat_and_run(boat_speeds).apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), speed_at_angle), axis=1)
+interpolate_beat_and_run(boat_speeds).apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), speed_at_angle, label=f'{speed_at_angle.name} kts'), axis=1)
 
 ax.set_theta_direction(-1)  # clockwise
 ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg
@@ -53,4 +53,5 @@ ax.set_thetagrids((0, 45, 52, 60, 75, 90, 110, 120, 135, 150, 165, 180))
 ax.set_rmax(10)
 ax.grid(linestyle=':')
 
+plt.legend(title='TWS', loc='lower right')
 plt.show()

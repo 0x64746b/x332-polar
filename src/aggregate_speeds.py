@@ -3,7 +3,7 @@ import json
 
 import numpy as np
 
-with open('../data/orc_2024.valid.json') as all_boats:
+with open('../data/orc-data.json') as all_boats:
     x332s = [entry for entry in json.load(all_boats) if entry['boat']['type'] == 'X-332']
 
 boat_speeds = defaultdict(list)

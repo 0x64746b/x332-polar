@@ -11,7 +11,7 @@ def interpolate_beat_and_run(sparse_speeds: pd.DataFrame):
     return sparse_speeds.interpolate(method='index', axis=1, limit_area='inside').round(1)
 
 # Read data
-with open('../output/avg_x332.json') as avg_speeds:
+with open('../output/X-332_Averaged_Speeds.json') as avg_speeds:
     data = json.load(avg_speeds)
 
 # Prepare data structures

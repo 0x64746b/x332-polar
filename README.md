@@ -5,7 +5,7 @@ Play with averaged speeds, beat and run angles.
 ## Example
 
 ![Target Speeds](output/X-332_Target_Speeds.png)
-![Boat speeds](output/X-332_Polar_Diagram.png)
+![Boat speeds](output/X-332_Polar_Diagram.svg)
 
 ## Data Sources
 

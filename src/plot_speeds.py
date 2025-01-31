@@ -40,7 +40,7 @@ print(boat_speeds)
 ).show()
 
 # Plot the whole thing
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+fig, ax = plt.subplots(figsize=(10, 10), subplot_kw={'projection': 'polar'})
 fig.canvas.manager.set_window_title('X-332 Polar Diagram')
 
 interpolate_beat_and_run(boat_speeds).apply(lambda speed_at_angle: ax.plot(np.deg2rad(wind_angles), speed_at_angle, label=f'{speed_at_angle.name} kts'), axis=1)
@@ -55,4 +55,6 @@ ax.set_rmax(10)
 ax.grid(linestyle=':')
 
 plt.legend(title='TWS', loc='lower right')
+
+plt.savefig('../output/X-332_Polar_Diagram.svg')
 plt.show()

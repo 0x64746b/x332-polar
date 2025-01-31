@@ -37,7 +37,7 @@ print(boat_speeds)
     #.tab_stubhead(label="TWS\TWA")
     .opt_stylize(style=1)
     .opt_horizontal_padding(scale=2)
-).show()
+).save('../output/X-332_Target_Speeds.png', scale=4.0)
 
 # Plot the whole thing
 fig, ax = plt.subplots(figsize=(10, 10), subplot_kw={'projection': 'polar'})
@@ -57,4 +57,3 @@ ax.grid(linestyle=':')
 plt.legend(title='TWS', loc='lower right')
 
 plt.savefig('../output/X-332_Polar_Diagram.svg')
-plt.show()

@@ -50,6 +50,7 @@ ax.set_theta_offset(np.pi / 2)  # rotate by 90 deg
 ax.set_thetamin(0)  # plot only right half of diagram
 ax.set_thetamax(180)
 ax.set_thetagrids((0, 45, 52, 60, 75, 90, 110, 120, 135, 150, 165, 180))
+ax.set_rticks([2, 4, 6, 8], ['2 kts', '4 kts', '6 kts', '8 kts'])
 ax.set_rmax(10)
 ax.grid(linestyle=':')
 
